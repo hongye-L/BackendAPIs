@@ -44,22 +44,29 @@ public interface PostMapper {
     /**
      * Post a post boolean.
      *
-     * @param userid   the nickname
-     * @param content     the content
-     * @param post_title  the post title
-     * @param picture_1   the picture 1
-     * @param picture_2   the picture 2
-     * @param picture_3   the picture 3
-     * @param picture_4   the picture 4
-     * @param picture_5   the picture 5
-     * @param picture_6   the picture 6
-     * @param videos      the videos
-     * @param tablename   the tablename
+     * @param userid     the nickname
+     * @param content    the content
+     * @param post_title the post title
+     * @param picture_1  the picture 1
+     * @param picture_2  the picture 2
+     * @param picture_3  the picture 3
+     * @param picture_4  the picture 4
+     * @param picture_5  the picture 5
+     * @param picture_6  the picture 6
+     * @param videos     the videos
+     * @param tablename  the tablename
      * @return the boolean
      */
     boolean postAPost(@Param("userid")String userid,@Param("content")String content,
                     @Param("post_title")String post_title, @Param("picture_1")String picture_1, @Param("picture_2")String picture_2, @Param("picture_3")String
     picture_3, @Param("picture_4")String picture_4, @Param("picture_5")String picture_5, @Param("picture_6")String picture_6, @Param("videos")String
     videos, @Param("tablename")String tablename);
+
+    /**
+     * Search for last post posts.
+     *
+     * @param tablename the tablename
+     * @return the posts
+     */
     Posts searchForLastPost(@Param("tablename")String tablename);
 }
