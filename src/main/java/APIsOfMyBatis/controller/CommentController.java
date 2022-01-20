@@ -48,8 +48,10 @@ public class CommentController {
     @PostMapping("addcomment")
     public JsonResult addComment(@RequestBody Map<String,String> map){
         boolean success=commentService.addComment(map.get("nickname"),map.get("userid"),map.get("postid"),map.get("content"),map.get("tablename"));
+        //成功插入
         if (success) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
+        //插入失败
         } else {
             return new JsonResult(false,GlobalReturnCode.OPERA_FAILURE);
         }
@@ -57,8 +59,10 @@ public class CommentController {
     @PostMapping("deletecomment")
     public JsonResult deleteComment(@RequestBody Map<String,String>map){
         boolean success=commentService.deleteComment(map.get("postid"),map.get("commentid"),map.get("userid"),map.get("tablename"));
+        //删除成功
         if (success) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
+        //删除失败
         } else {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);
         }
