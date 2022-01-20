@@ -13,9 +13,9 @@
         delete from sportapp.${tablename} where post_id=#{post_id}
     </delete>
     <insert id="postAPost" parameterType="APIsOfMyBatis.entity.Posts">
-    insert into sportapp.${tablename}(userid,user_avatar,content,post_title,picture_1,picture_2,picture_3,picture_4,
+    insert into sportapp.${tablename}(userid,content,post_title,picture_1,picture_2,picture_3,picture_4,
                                       picture_5,picture_6,videos)
-                                          values(#{userid},#{user_avatar},#{content},#{post_title},#{picture_1},
+                                          values(#{userid},#{content},#{post_title},#{picture_1},
                                                  #{picture_2},#{picture_3},#{picture_4},#{picture_5},#{picture_6},
                                                  #{videos});
 

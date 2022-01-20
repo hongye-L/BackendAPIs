@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author 竑也
+ */
 @RestController
 @RequestMapping("post")
 public class PostController {
@@ -57,14 +60,16 @@ public class PostController {
     }
     @PostMapping("postapost")
     public JsonResult postAPost(@RequestBody Map<String,String> map){
+        //先插入
         boolean success=postService.postAPost(map.getOrDefault("userid",null),
-                map.getOrDefault("user_avatar",null),map.getOrDefault("content",null),
+                map.getOrDefault("content",null),
                 map.getOrDefault("post_title",null),map.getOrDefault("picture_1",null),
                 map.getOrDefault("picture_2",null), map.getOrDefault("picture_3",null),
                 map.getOrDefault("picture_4",null),
                 map.getOrDefault("picture_5",null),map.getOrDefault("picture_6",null),
                 map.getOrDefault("videos",null),
                 map.get("tablename"));
+        //再拿出来返回
         Posts lastpost=postService.searchForLastPost(map.getOrDefault("tablename",null));
         if(success) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,lastpost);

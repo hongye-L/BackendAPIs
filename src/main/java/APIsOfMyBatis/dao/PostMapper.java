@@ -45,7 +45,6 @@ public interface PostMapper {
      * Post a post boolean.
      *
      * @param userid   the nickname
-     * @param user_avatar the user avatar
      * @param content     the content
      * @param post_title  the post title
      * @param picture_1   the picture 1
@@ -58,7 +57,7 @@ public interface PostMapper {
      * @param tablename   the tablename
      * @return the boolean
      */
-    boolean postAPost(@Param("userid")String userid, @Param("user_avatar")String user_avatar, @Param("content")String content,
+    boolean postAPost(@Param("userid")String userid,@Param("content")String content,
                     @Param("post_title")String post_title, @Param("picture_1")String picture_1, @Param("picture_2")String picture_2, @Param("picture_3")String
     picture_3, @Param("picture_4")String picture_4, @Param("picture_5")String picture_5, @Param("picture_6")String picture_6, @Param("videos")String
     videos, @Param("tablename")String tablename);

@@ -29,8 +29,8 @@ public class PostService{
         return postMapper.deletePostByidAndTablename(post_id,tablename);
     }
 
-    public boolean postAPost(String nickname, String user_avatar, String content, String post_title, String picture_1, String picture_2, String picture_3, String picture_4, String picture_5, String picture_6, String videos, String tablename) {
-        return postMapper.postAPost(nickname,user_avatar,content,post_title,picture_1,picture_2,picture_3,picture_4,picture_5,picture_6,videos,tablename);
+    public boolean postAPost(String nickname,String content, String post_title, String picture_1, String picture_2, String picture_3, String picture_4, String picture_5, String picture_6, String videos, String tablename) {
+        return postMapper.postAPost(nickname,content,post_title,picture_1,picture_2,picture_3,picture_4,picture_5,picture_6,videos,tablename);
     }
     public Posts searchForLastPost(String tablename){
         return postMapper.searchForLastPost(tablename);

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="APIsOfMyBatis.dao.CommentMapper">
+    <select id="getCommentsById" resultType="APIsOfMyBatis.entity.Comments">
+        select * from sportapp.${tablename} where comment_id=#{comment_id} and post_id=#{post_id}
+    </select>
+    <select id="getCommentsByPost" resultType="APIsOfMyBatis.entity.Comments">
+        select *from sportapp.${tablename} where post_id=#{post_id}
+    </select>
+    <insert id="addComment" parameterType="APIsOfMyBatis.entity.Comments">
+        insert into sportapp.${tablename}(nickname,userid,content,post_id)
+        values(#{nickname},#{userid},#{content},#{post_id});
+    </insert>
+    <delete id="deleteComment" parameterType="APIsOfMyBatis.entity.Comments">
+        delete from sportapp.${tablename} where post_id=#{post_id} and user_id=#{user_id} and comment_id=#{comment_id}
+    </delete>
+</mapper>
