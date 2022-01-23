@@ -2,17 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="APIsOfMyBatis.dao.PostMapper">
-    <select id="getPostByIDAndTablename" resultType="APIsOfMyBatis.entity.Posts">
+<mapper namespace="com.hongye.APIsOfMyBatis.dao.PostMapper">
+    <select id="getPostByIDAndTablename" resultType="com.hongye.APIsOfMyBatis.entity.Posts">
         select * from sportapp.${tablename} where post_id =#{post_id}
     </select>
-    <select id="getAllPostsByTablename" resultType="APIsOfMyBatis.entity.Posts">
+    <select id="getAllPostsByTablename" resultType="com.hongye.APIsOfMyBatis.entity.Posts">
         select * from sportapp.${tablename}
     </select>
-    <delete id="deletePostByidAndTablename" parameterType="APIsOfMyBatis.entity.Posts">
+    <delete id="deletePostByidAndTablename" parameterType="com.hongye.APIsOfMyBatis.entity.Posts">
         delete from sportapp.${tablename} where post_id=#{post_id}
     </delete>
-    <insert id="postAPost" parameterType="APIsOfMyBatis.entity.Posts">
+    <insert id="postAPost" parameterType="com.hongye.APIsOfMyBatis.entity.Posts">
     insert into sportapp.${tablename}(userid,content,post_title,picture_1,picture_2,picture_3,picture_4,
                                       picture_5,picture_6,videos)
                                           values(#{userid},#{content},#{post_title},#{picture_1},
@@ -20,7 +20,7 @@
                                                  #{videos});
 
     </insert>
-    <select id="searchForLastPost" resultType="APIsOfMyBatis.entity.Posts">
+    <select id="searchForLastPost" resultType="com.hongye.APIsOfMyBatis.entity.Posts">
         select * from sportapp.${tablename} order by time desc limit 1
     </select>
 </mapper>

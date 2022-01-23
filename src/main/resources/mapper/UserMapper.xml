@@ -3,30 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- mapper:根标签，namespace：命名空间，随便写，一般保证命名空间唯一 -->
-<mapper namespace="APIsOfMyBatis.dao.UserMapper">
+<mapper namespace="com.hongye.APIsOfMyBatis.dao.UserMapper">
     <!-- statement，内容：sql语句。id：唯一标识，随便写，在同一个命名空间下保持唯一
        resultType：sql语句查询结果集的封装类型,即为数据库中的表
      -->
-    <select id="getUserById" resultType="APIsOfMyBatis.entity.User">
+    <select id="getUserById" resultType="com.hongye.APIsOfMyBatis.entity.User">
         select * from sportapp.users where id = #{id}
     </select>
-    <select id="getAllUser" resultType="APIsOfMyBatis.entity.User">
+    <select id="getAllUser" resultType="com.hongye.APIsOfMyBatis.entity.User">
         select * from sportapp.users;
     </select>
-    <select id="Login" resultType="APIsOfMyBatis.entity.User">
+    <select id="Login" resultType="com.hongye.APIsOfMyBatis.entity.User">
         select *from sportapp.users where username=#{username} and password=#{password}
     </select>
-    <insert id="register" parameterType="APIsOfMyBatis.entity.User">
+    <insert id="register" parameterType="com.hongye.APIsOfMyBatis.entity.User">
         insert into sportapp.users(username,password) values(#{username},#{password});
     </insert>
-    <update id="changePassword"  parameterType="APIsOfMyBatis.entity.User">
+    <update id="changePassword"  parameterType="com.hongye.APIsOfMyBatis.entity.User">
         update sportapp.users
         <trim prefix="set" suffixOverrides=",">
             <if test="password!=null">password = #{password},</if>
         </trim>
             where (username=#{username});
     </update>
-    <delete id="deleteUser" parameterType="APIsOfMyBatis.entity.User">
+    <delete id="deleteUser" parameterType="com.hongye.APIsOfMyBatis.entity.User">
         delete from sportapp.users where id=#{id};
     </delete>
 </mapper>

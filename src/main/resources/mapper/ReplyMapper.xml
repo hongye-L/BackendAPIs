@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongye.APIsOfMyBatis.dao.ReplyMapper">
+    <select id="getReplyById" resultType="com.hongye.APIsOfMyBatis.entity.Reply">
+        select * from sportapp.${tablename} where userid=#{user_id} and comment_id=#{comment_id}
+    </select>
+    <select id="getReplyByCommentId" resultType="com.hongye.APIsOfMyBatis.entity.Reply">
+        select * from sportapp.${tablename} where comment_id=#{comment_id}
+    </select>
+    <insert id="addReply" parameterType="com.hongye.APIsOfMyBatis.entity.Reply">
+        insert into sportapp.${tablename}(userid,content,parent_id,comment_id,post_id)
+        values (#{user_id},#{content},#{parent_id},#{comment_id},#{post_id})
+    </insert>
+    <delete id="deleteCommentById" parameterType="com.hongye.APIsOfMyBatis.entity.Reply">
+        delete from sportapp.${tablename} where user_id=#{user_id} and reply_id=#{reply_id}
+    </delete>
+</mapper>
