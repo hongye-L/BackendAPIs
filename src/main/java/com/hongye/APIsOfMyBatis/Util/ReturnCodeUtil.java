@@ -2,8 +2,11 @@ package com.hongye.APIsOfMyBatis.Util;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author 竑也
+ */
 public class ReturnCodeUtil {
-    //定义返回码及文字数据
+    //定义返回码及文字数据。
     private static Map<String, String> returnCodeMap=new HashMap<>();
 
     static {
@@ -33,10 +36,6 @@ public class ReturnCodeUtil {
      * @return 中文名称
      */
     public static String getMsg(String resultCode) {
-        if (returnCodeMap.containsKey(resultCode)) {
-            return returnCodeMap.get(resultCode);
-        } else {
-            return "";
-        }
+        return returnCodeMap.getOrDefault(resultCode, "");
     }
 }

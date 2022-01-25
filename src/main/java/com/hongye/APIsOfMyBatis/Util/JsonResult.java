@@ -1,7 +1,7 @@
 package com.hongye.APIsOfMyBatis.Util;
 
 /**
- * The type Json result.
+ * The type Json result
  * @author 竑也
  */
 public class JsonResult {

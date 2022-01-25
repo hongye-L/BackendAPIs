@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * The type My batis util.
+ * The type My batis util
  *
  * @author 竑也
  */

@@ -6,7 +6,7 @@ package com.hongye.APIsOfMyBatis.Util;
          */
         public static final String SAVE_SUCCESS = "10001";
         /**
-         * 删除成功
+         * 删除成功！
          */
         public static final String DELETE_SUCCESS = "10002";
         /**
