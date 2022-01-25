@@ -1,11 +1,13 @@
 package com.hongye.APIsOfMyBatis.entity;
 
+import java.io.Serializable;
+
 /**
  * The type User.
  *
  * @author 竑也
  */
-public class User {
+public class User implements Serializable {
     private String username;
     private String password;
     private String id;

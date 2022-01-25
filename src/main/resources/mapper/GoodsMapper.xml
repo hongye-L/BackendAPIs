@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongye.APIsOfMyBatis.dao.GoodsMapper">
+    <select id="getGoodsByUserId" resultType="com.hongye.APIsOfMyBatis.entity.Goods">
+        select * from sportapp.${tablename} where userid=#{userid}
+    </select>
+    <select id="getGoodsBySecondId" resultType="com.hongye.APIsOfMyBatis.entity.Goods">
+        select * from sportapp.${tablename} where commentid=#{commentid} or postid=#{postid}
+    </select>
+    <insert id="addGoods" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
+        insert into sportapp.${tablename}(userid,id,goods,target)values (#{userid},#{id},#{goods},#{target})
+    </insert>
+    <delete id="deleteGoods" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
+        delete from sportapp.${tablename} where userid=#{userid} and id=#{id}
+    </delete>
+    <update id="addGoodsToPost" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
+        update sportapp.${target} set goods =goods+1 where userid=#{userid} and post_id=#{postid}
+    </update>
+    <update id="addGoodsToComment" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
+        update sportapp.${target} set goods =goods+1 where userid=#{userid} and comment_id=#{commentid}
+    </update>
+    <update id="deleteGoodsFromPost" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
+        update sportapp.${target} set goods =goods-1 where userid=#{userid} and post_id=#{postid}
+    </update>
+    <update id="deleteGoodsFromComment" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
+        update sportapp.${target} set goods =goods-1 where userid=#{userid} and comment_id=#{commentid}
+    </update>
+</mapper>
