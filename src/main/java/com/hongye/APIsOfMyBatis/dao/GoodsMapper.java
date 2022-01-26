@@ -56,7 +56,7 @@ public interface GoodsMapper {
      * @param postid the postid
      * @return the boolean
      */
-    boolean addGoodsToPost(@Param("target")String target,@Param("id")String postid);
+    boolean addGoodsToPost(@Param("target")String target,@Param("postid")String postid);
 
     /**
      * Add goods to comment boolean.
@@ -65,7 +65,7 @@ public interface GoodsMapper {
      * @param commentid the commentid
      * @return the boolean
      */
-    boolean addGoodsToComment(@Param("target")String target,@Param("id")String commentid);
+    boolean addGoodsToComment(@Param("target")String target,@Param("commentid")String commentid);
 
     /**
      * Delete goods from post boolean.
@@ -74,7 +74,7 @@ public interface GoodsMapper {
      * @param postid the postid
      * @return the boolean
      */
-    boolean deleteGoodsFromPost(@Param("target")String target,@Param("id")String postid);
+    boolean deleteGoodsFromPost(@Param("target")String target,@Param("postid")String postid);
 
     /**
      * Delete goods from comment boolean.
@@ -83,5 +83,5 @@ public interface GoodsMapper {
      * @param commentid the commentid
      * @return the boolean
      */
-    boolean deleteGoodsFromComment(@Param("target")String target,@Param("id")String commentid);
+    boolean deleteGoodsFromComment(@Param("target")String target,@Param("commentid")String commentid);
 }
