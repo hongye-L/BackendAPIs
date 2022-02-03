@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongye.APIsOfMyBatis.dao.CheckMapper">
+    <select id="CheckinTables" resultType="java.lang.Boolean">
+        select * from sportapp.${tablename} where userId=#{userid}
+    </select>
+    <insert id="addLeaderBoards">
+        insert into sportapp.Clock_in(userid)values #{userid}
+    </insert>
+    <select id="getTodayLeaderBoard" resultType="com.hongye.APIsOfMyBatis.entity.CheckBoard">
+        select * from sportapp.Clock_in where to_days(time)=to_days(now());
+    </select>
+</mapper>

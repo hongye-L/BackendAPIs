@@ -1,5 +1,6 @@
 package com.hongye.APIsOfMyBatis.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,8 +13,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2022 -01-20 11:21:49
  */
-@Getter
-@Setter
+@Data
 public class Comments implements Serializable {
     private static final long serialVersionUID = 965875710241774367L;
     

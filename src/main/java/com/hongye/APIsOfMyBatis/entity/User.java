@@ -1,5 +1,6 @@
 package com.hongye.APIsOfMyBatis.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +11,7 @@ import java.io.Serializable;
  *
  * @author 竑也
  */
-@Getter
-@Setter
+@Data
 public class User implements Serializable {
     private String username;
     private String password;
