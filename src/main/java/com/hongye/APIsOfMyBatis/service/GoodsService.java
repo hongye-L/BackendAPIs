@@ -46,8 +46,8 @@ public class GoodsService{
      * @param tablename the tablename
      * @return the boolean
      */
-    public boolean addGoods(String userid, String id, String tablename) {
-        return goodsMapper.addGoods(userid,id,tablename);
+    public boolean addGoods(String userid, String id, String tablename,String target) {
+        return goodsMapper.addGoods(userid,id,tablename,target);
     }
 
     /**

@@ -45,9 +45,11 @@ public class CommentController {
     }
     @PostMapping("addcomment")
     public JsonResult addComment(@RequestBody Map<String,String> map){
-        boolean success=commentService.addComment(map.get("nickname"),map.get("user_id"),map.get("post_id"),map.get("content"),map.get("tablename"));
+        commentService.addComment(map.getOrDefault("nickname",null),map.getOrDefault("userid",null),
+                map.getOrDefault("post_id",null),map.getOrDefault("content",null),map.getOrDefault("tablename",null));
+        Comments success=commentService.check(map.get("tablename"),map.get("content"));
         //成功插入
-        if (success) {
+        if (success!=null) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
         //插入失败
         } else {
@@ -56,10 +58,11 @@ public class CommentController {
     }
     @PostMapping("deletecomment")
     public JsonResult deleteComment(@RequestBody Map<String,String>map){
-        boolean success=commentService.deleteComment(map.get("post_id"),map.get("comment_id"),map.get("user_id"),map.get("tablename"));
+        commentService.deleteComment(map.get("post_id"),map.get("comment_id"),map.get("user_id"),map.get("tablename"));
+        Comments success=commentService.getCommentsById(map.get("comment_id"),map.get("tablename"),map.get("post_id"),map.get("user_id"));
         //删除成功
-        if (success) {
-            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
+        if (success==null) {
+            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
         //删除失败
         } else {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);

@@ -2,6 +2,7 @@ package com.hongye.APIsOfMyBatis.service;
 
 import com.hongye.APIsOfMyBatis.dao.CommentMapper;
 import com.hongye.APIsOfMyBatis.entity.Comments;
+import com.hongye.APIsOfMyBatis.entity.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,10 +50,9 @@ public class CommentService {
      * @param post_id    the post id
      * @param content   the content
      * @param tablename the tablename
-     * @return the boolean
      */
-    public boolean addComment(String nickname, String user_id, String post_id, String content, String tablename) {
-        return commentMapper.addComment(nickname,user_id,post_id,content,tablename);
+    public void addComment(String nickname, String user_id, String post_id, String content, String tablename) {
+        commentMapper.addComment(nickname,user_id,post_id,content,tablename);
     }
 
     /**
@@ -62,9 +62,11 @@ public class CommentService {
      * @param comment_id the comment id
      * @param user_id    the user id
      * @param tablename the tablename
-     * @return the boolean
      */
-    public boolean deleteComment(String post_id, String comment_id, String user_id, String tablename) {
-        return commentMapper.deleteComment(post_id,comment_id,user_id,tablename);
+    public void deleteComment(String post_id, String comment_id, String user_id, String tablename) {
+        commentMapper.deleteComment(post_id,comment_id,user_id,tablename);
+    }
+    public Comments check(String tablename,String content){
+        return commentMapper.check(tablename,content);
     }
 }

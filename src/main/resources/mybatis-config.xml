@@ -20,7 +20,7 @@
             <!-- 数据源，池类型的数据源 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://120.24.191.82:3306/mysql?serverTimezone = GMT&amp;characterEncoding=utf8" />
+                <property name="url" value="jdbc:mysql://120.24.191.82:3306/mysql?serverTimezone = GMT&amp;characterEncoding=utf8"/>
                 <property name="username" value="root" />
                 <property name="password" value="miku1234" />
             </dataSource>

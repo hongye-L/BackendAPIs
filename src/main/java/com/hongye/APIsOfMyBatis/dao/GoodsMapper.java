@@ -37,7 +37,7 @@ public interface GoodsMapper {
      * @param tablename the tablename
      * @return the boolean
      */
-    boolean addGoods(@Param("userid")String userid,@Param("id")String id,@Param("tablename")String tablename);
+    boolean addGoods(@Param("userid")String userid,@Param("id")String id,@Param("tablename")String tablename,@Param("target")String target);
 
     /**
      * Delete goods boolean.

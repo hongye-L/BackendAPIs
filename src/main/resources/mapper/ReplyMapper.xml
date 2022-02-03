@@ -13,7 +13,15 @@
         insert into sportapp.${tablename}(userid,content,parent_id,comment_id,post_id)
         values (#{user_id},#{content},#{parent_id},#{comment_id},#{post_id})
     </insert>
-    <delete id="deleteCommentById" parameterType="com.hongye.APIsOfMyBatis.entity.Reply">
+    <delete id="deleteReplyById" parameterType="com.hongye.APIsOfMyBatis.entity.Reply">
         delete from sportapp.${tablename} where user_id=#{user_id} and reply_id=#{reply_id}
     </delete>
+
+    <select id="check" resultType="com.hongye.APIsOfMyBatis.entity.Reply">
+        select * from sportapp.${tablename} where content =#{content} order by time desc limit 1
+    </select>
+
+    <select id="checkById" resultType="com.hongye.APIsOfMyBatis.entity.Reply">
+        select * from sportapp.${tablename} where reply_id=#{reply_id}
+    </select>
 </mapper>

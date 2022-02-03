@@ -40,19 +40,21 @@ public class ReplyController {
     }
     @PostMapping("addreply")
     public JsonResult addReply(@RequestBody Map<String,String>map){
-        boolean success=replyService.addReply(map.get("user_id"),map.get("content"),map.get("parent_id"),
+        replyService.addReply(map.get("user_id"),map.get("content"),map.get("parent_id"),
                 map.get("comment_id"),map.get("post_id"),map.get("tablname"));
-        if (success) {
+        Reply success=replyService.check(map.get("content"),map.get("tablename"));
+        if (success!=null) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
         } else {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);
         }
     }
-    @PostMapping("deletecommentbyid")
-    public JsonResult deleteCommentById(@RequestBody Map<String,String>map){
-        boolean success=replyService.deleteCommentById(map.get("user_id"),map.get("reply_id"));
-        if(success) {
-            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
+    @PostMapping("deletereplybyid")
+    public JsonResult deleteReplyById(@RequestBody Map<String,String>map){
+        replyService.deleteReplyById(map.get("user_id"),map.get("reply_id"),map.get("tablename"));
+        Reply success=replyService.checkByID(map.get("reply_id"),map.get("tablename"));
+        if(success==null) {
+            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
         } else {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);
         }

@@ -1,6 +1,8 @@
 package com.hongye.APIsOfMyBatis.dao;
 
 import com.hongye.APIsOfMyBatis.entity.Comments;
+import com.hongye.APIsOfMyBatis.entity.Posts;
+import com.hongye.APIsOfMyBatis.service.CommentService;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -9,6 +11,7 @@ import java.util.List;
 
 /**
  * The interface Comment mapper.
+ *
  * @author 竑也
  */
 @Mapper
@@ -17,8 +20,9 @@ public interface CommentMapper {
      * Gets comments by id.
      *
      * @param comment_id the comment id
-     * @param tablename the tablename
-     * @param postId    the post id
+     * @param tablename  the tablename
+     * @param postId     the post id
+     * @param user_id    the user id
      * @return the comments by id
      */
     Comments getCommentsById(@Param("comment_id")String comment_id,@Param("tablename")String tablename,@Param("post_id")String postId,@Param("user_id")String user_id);
@@ -26,7 +30,7 @@ public interface CommentMapper {
     /**
      * Gets comments by post.
      *
-     * @param post_id    the post id
+     * @param post_id   the post id
      * @param tablename the tablename
      * @return the comments by post
      */
@@ -36,13 +40,12 @@ public interface CommentMapper {
      * Add comment boolean.
      *
      * @param nickname  the nickname
-     * @param user_id    the user id
-     * @param post_id    the post id
+     * @param user_id   the user id
+     * @param post_id   the post id
      * @param content   the content
      * @param tablename the tablename
-     * @return the boolean
      */
-    boolean addComment(@Param("nickname")String nickname,@Param("user_id")String user_id,@Param("post_id")String post_id,
+    void addComment(@Param("nickname")String nickname,@Param("user_id")String user_id,@Param("post_id")String post_id,
                        @Param("content")String content,@Param("tablename")String tablename);
 
     /**
@@ -51,10 +54,17 @@ public interface CommentMapper {
      * @param post_id    the post id
      * @param comment_id the comment id
      * @param user_id    the user id
-     * @param tablename the tablename
-     * @return the boolean
+     * @param tablename  the tablename
      */
-    boolean deleteComment(@Param("post_id")String post_id,@Param("comment_id")String comment_id,
+    void deleteComment(@Param("post_id")String post_id,@Param("comment_id")String comment_id,
                           @Param("user_id")String user_id,@Param("tablename")String tablename);
 
+    /**
+     * Check comments.
+     *
+     * @param tablename the tablename
+     * @param content   the content
+     * @return the comments
+     */
+    Comments check(@Param("tablename")String tablename,@Param("content")String content);
 }

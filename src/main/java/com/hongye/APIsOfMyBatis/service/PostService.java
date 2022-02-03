@@ -43,10 +43,9 @@ public class PostService{
      *
      * @param post_id   the post id
      * @param tablename the tablename
-     * @return the boolean
      */
-    public boolean deletePostByidAndTablename(Integer post_id, String tablename) {
-        return postMapper.deletePostByidAndTablename(post_id,tablename);
+    public void deletePostByidAndTablename(Integer post_id, String tablename) {
+        postMapper.deletePostByidAndTablename(post_id, tablename);
     }
 
     /**
@@ -63,10 +62,9 @@ public class PostService{
      * @param picture_6  the picture 6
      * @param videos     the videos
      * @param tablename  the tablename
-     * @return the boolean
      */
-    public boolean postAPost(String nickname,String content, String post_title, String picture_1, String picture_2, String picture_3, String picture_4, String picture_5, String picture_6, String videos, String tablename) {
-        return postMapper.postAPost(nickname,content,post_title,picture_1,picture_2,picture_3,picture_4,picture_5,picture_6,videos,tablename);
+    public void postAPost(String nickname,String content, String post_title, String picture_1, String picture_2, String picture_3, String picture_4, String picture_5, String picture_6, String videos, String tablename) {
+        postMapper.postAPost(nickname,content,post_title,picture_1,picture_2,picture_3,picture_4,picture_5,picture_6,videos,tablename);
     }
 
     /**

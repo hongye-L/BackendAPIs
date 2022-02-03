@@ -35,9 +35,8 @@ public interface PostMapper {
      *
      * @param post_id   the post id
      * @param tablename the tablename
-     * @return the boolean
      */
-    boolean deletePostByidAndTablename(@Param("post_id")Integer post_id,@Param("tablename")String tablename);
+    void deletePostByidAndTablename(@Param("post_id")Integer post_id,@Param("tablename")String tablename);
 
     /**
      * Post a post boolean.
@@ -53,9 +52,8 @@ public interface PostMapper {
      * @param picture_6  the picture 6
      * @param videos     the videos
      * @param tablename  the tablename
-     * @return the boolean
      */
-    boolean postAPost(@Param("userid")String userid,@Param("content")String content,
+    void postAPost(@Param("userid")String userid,@Param("content")String content,
                     @Param("post_title")String post_title, @Param("picture_1")String picture_1, @Param("picture_2")String picture_2, @Param("picture_3")String
     picture_3, @Param("picture_4")String picture_4, @Param("picture_5")String picture_5, @Param("picture_6")String picture_6, @Param("videos")String
     videos, @Param("tablename")String tablename);

@@ -47,10 +47,11 @@ public class PostController {
     }
     @PostMapping("deletepost")
     public JsonResult deletePostByidAndTablename(@RequestBody Map<String,String> map){
-        boolean success =postService.deletePostByidAndTablename(Integer.valueOf(map.get("post_id")),map.get("tablename"));
+        postService.deletePostByidAndTablename(Integer.valueOf(map.get("post_id")),map.get("tablename"));
+        Posts successdelete=postService.getPostByIDAndTablename(Integer.valueOf(map.get("post_id")),map.get("tablename"));
         //删除成功
-        if (success) {
-            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
+        if (successdelete==null) {
+            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
         }
         //删除失败
         else {
@@ -59,8 +60,8 @@ public class PostController {
     }
     @PostMapping("postapost")
     public JsonResult postAPost(@RequestBody Map<String,String> map){
-        //先插入
-        boolean success=postService.postAPost(map.getOrDefault("userid",null),
+        //插入
+        postService.postAPost(map.getOrDefault("userid",null),
                 map.getOrDefault("content",null),
                 map.getOrDefault("post_title",null),map.getOrDefault("picture_1",null),
                 map.getOrDefault("picture_2",null), map.getOrDefault("picture_3",null),
@@ -68,10 +69,10 @@ public class PostController {
                 map.getOrDefault("picture_5",null),map.getOrDefault("picture_6",null),
                 map.getOrDefault("videos",null),
                 map.get("tablename"));
-        //再拿出来返回
         Posts lastpost=postService.searchForLastPost(map.getOrDefault("tablename",null));
-        if(success) {
-            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,lastpost);
+        //检查是否插入成功
+        if(lastpost!=null) {
+            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
         } else {
             return new JsonResult(false,GlobalReturnCode.OPERA_FAILURE);
         }

@@ -42,7 +42,7 @@ public class GoodsController {
     }
     @PostMapping("addgoods")
     public JsonResult addGoods(@RequestBody Map<String,String>map){
-        boolean success=goodsService.addGoods(map.get("userid"),map.get("id"),map.get("tablename"));
+        boolean success=goodsService.addGoods(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
         String target=map.get("target");
         if (success) {
             //用正则检查target参数里面的数据库类名
@@ -65,7 +65,7 @@ public class GoodsController {
             }
         }
         //默认返回,一般走不到这一步
-        return null;
+        return new JsonResult(false,GlobalReturnCode.NOEXIST);
     }
     @PostMapping("deletegoods")
     public JsonResult deleteGoods(@RequestBody Map<String, String>map){

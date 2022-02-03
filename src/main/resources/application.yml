@@ -1,3 +1,15 @@
+server:
+  port: 8080
+
 spring:
-  profiles:
-    active: dev
+  datasource:
+    url: jdbc:mysql://120.24.191.82:3306/mysql?serverTimezone = GMT&characterEncoding=utf8
+    username: root
+    password: miku1234
+  jackson:
+    date-format: yyyy-MM-dd #如果使用字符串型表示，用这行设置
+    timezone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false #timestamp表示日期,false表示不用这数字；true表示用数字
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml

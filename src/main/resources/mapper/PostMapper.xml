@@ -21,6 +21,6 @@
 
     </insert>
     <select id="searchForLastPost" resultType="com.hongye.APIsOfMyBatis.entity.Posts">
-        select * from sportapp.${tablename} order by time desc limit 1
+        select * from sportapp.${tablename} where content is not null or picture_1 is not null or videos is not null order by time desc limit 1
     </select>
 </mapper>

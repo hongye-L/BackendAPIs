@@ -10,7 +10,7 @@
         select * from sportapp.${tablename} where commentid=#{commentid} or postid=#{postid}
     </select>
     <insert id="addGoods" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
-        insert into sportapp.${tablename}(userid,id,goods,target)values (#{userid},#{id},#{goods},#{target})
+        insert into sportapp.${tablename}(userid,id,target)values (#{userid},#{id},#{target})
     </insert>
     <delete id="deleteGoods" parameterType="com.hongye.APIsOfMyBatis.entity.Goods">
         delete from sportapp.${tablename} where userid=#{userid} and id=#{id}

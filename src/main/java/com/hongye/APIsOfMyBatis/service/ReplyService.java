@@ -19,11 +19,17 @@ public class ReplyService {
         return replyMapper.getReplyByCommentId(comment_id, tablename);
     }
 
-    public boolean addReply(String user_id, String content, String parent_id, String comment_id, String post_id, String tablename) {
-        return replyMapper.addReply(user_id, content, parent_id, comment_id, post_id, tablename);
+    public void addReply(String user_id, String content, String parent_id, String comment_id, String post_id, String tablename) {
+        replyMapper.addReply(user_id, content, parent_id, comment_id, post_id, tablename);
     }
 
-    public boolean deleteCommentById(String user_id, String reply_id) {
-        return replyMapper.deleteCommentById(user_id, reply_id);
+    public void deleteReplyById(String user_id, String reply_id,String tablename) {
+        replyMapper.deleteReplyById(user_id, reply_id,tablename);
+    }
+    public Reply check(String content,String tablename){
+        return replyMapper.check(tablename,content);
+    }
+    public Reply checkByID(String reply_id,String tablename){
+        return replyMapper.checkById(reply_id,tablename);
     }
 }
