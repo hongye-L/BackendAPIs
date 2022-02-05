@@ -2,7 +2,6 @@ package com.hongye.APIsOfMyBatis.service;
 
 import com.hongye.APIsOfMyBatis.dao.CommentMapper;
 import com.hongye.APIsOfMyBatis.entity.Comments;
-import com.hongye.APIsOfMyBatis.entity.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

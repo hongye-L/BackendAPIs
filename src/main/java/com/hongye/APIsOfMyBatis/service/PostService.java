@@ -68,7 +68,7 @@ public class PostService{
     }
 
     /**
-     * Search for last post posts.
+     * Search for last post.
      *
      * @param tablename the tablename
      * @return the posts

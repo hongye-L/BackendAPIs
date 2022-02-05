@@ -69,10 +69,10 @@ public class PostController {
                 map.getOrDefault("picture_5",null),map.getOrDefault("picture_6",null),
                 map.getOrDefault("videos",null),
                 map.get("tablename"));
-        Posts lastpost=postService.searchForLastPost(map.getOrDefault("tablename",null));
+        Posts lastpost=postService.searchForLastPost(map.get("tablename"));
         //检查是否插入成功
         if(lastpost!=null) {
-            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
+            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,lastpost);
         } else {
             return new JsonResult(false,GlobalReturnCode.OPERA_FAILURE);
         }

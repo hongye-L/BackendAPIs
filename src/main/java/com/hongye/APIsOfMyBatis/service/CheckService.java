@@ -13,8 +13,8 @@ public class CheckService {
     public boolean CheckinTables(String userid, String tablename) {
         return checkMapper.CheckinTables(userid, tablename);
     }
-    public boolean addLeaderBoards(String userid) {
-        return checkMapper.addLeaderBoards(userid);
+    public void addLeaderBoards(String userid) {
+        checkMapper.addLeaderBoards(userid);
     }
     public List<CheckBoard> getTodayLeaderBoard(){
         return checkMapper.getTodayLeaderBoard();

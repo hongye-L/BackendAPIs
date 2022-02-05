@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author 竑也
+ */
 @RestController
 @RequestMapping("check")
 public class CheckController{

@@ -1,8 +1,6 @@
 package com.hongye.APIsOfMyBatis.dao;
 
-import com.hongye.APIsOfMyBatis.entity.Comments;
 import com.hongye.APIsOfMyBatis.entity.Reply;
-import com.hongye.APIsOfMyBatis.service.ReplyService;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

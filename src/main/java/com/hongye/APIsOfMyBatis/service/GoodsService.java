@@ -3,13 +3,13 @@ package com.hongye.APIsOfMyBatis.service;
 import com.hongye.APIsOfMyBatis.dao.GoodsMapper;
 import com.hongye.APIsOfMyBatis.entity.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * The type Goods service.
+ * @author 竑也
  */
 @Service
 public class GoodsService{
@@ -44,10 +44,9 @@ public class GoodsService{
      * @param userid    the userid
      * @param id        the id
      * @param tablename the tablename
-     * @return the boolean
      */
-    public boolean addGoods(String userid, String id, String tablename,String target) {
-        return goodsMapper.addGoods(userid,id,tablename,target);
+    public void addGoods(String userid, String id, String tablename,String target) {
+        goodsMapper.addGoods(userid,id,tablename,target);
     }
 
     /**
@@ -56,10 +55,9 @@ public class GoodsService{
      * @param userid    the userid
      * @param id        the id
      * @param tablename the tablename
-     * @return the boolean
      */
-    public boolean deleteGoods(String userid, String id, String tablename) {
-        return goodsMapper.deleteGoods(userid,id,tablename);
+    public void deleteGoods(String userid, String id, String tablename) {
+        goodsMapper.deleteGoods(userid,id,tablename);
     }
 
     /**
@@ -67,10 +65,9 @@ public class GoodsService{
      *
      * @param target the target
      * @param postid the postid
-     * @return the boolean
      */
-    public boolean addGoodsToPost(String target, String postid) {
-        return goodsMapper.addGoodsToPost(target,postid);
+    public void addGoodsToPost(String target, String postid) {
+        goodsMapper.addGoodsToPost(target,postid);
     }
 
     /**
@@ -78,10 +75,9 @@ public class GoodsService{
      *
      * @param target    the target
      * @param commentid the commentid
-     * @return the boolean
      */
-    public boolean addGoodsToComment(String target, String commentid) {
-        return goodsMapper.addGoodsToComment(target,commentid);
+    public void addGoodsToComment(String target, String commentid) {
+         goodsMapper.addGoodsToComment(target,commentid);
     }
 
     /**
@@ -89,10 +85,9 @@ public class GoodsService{
      *
      * @param target the target
      * @param postid the postid
-     * @return the boolean
      */
-    public boolean deleteGoodsFromPost(String target, String postid) {
-        return goodsMapper.deleteGoodsFromPost(target,postid);
+    public void deleteGoodsFromPost(String target, String postid) {
+        goodsMapper.deleteGoodsFromPost(target,postid);
     }
 
     /**
@@ -100,9 +95,11 @@ public class GoodsService{
      *
      * @param target    the target
      * @param commentid the commentid
-     * @return the boolean
      */
-    public boolean deleteGoodsFromComment(String target, String commentid) {
-        return goodsMapper.deleteGoodsFromComment(target,commentid);
+    public void deleteGoodsFromComment(String target, String commentid) {
+        goodsMapper.deleteGoodsFromComment(target,commentid);
+    }
+    public Goods check(String userid, String id, String tablename,String target){
+        return goodsMapper.checkGoods(userid,id,tablename,target);
     }
 }

@@ -4,7 +4,6 @@ import com.hongye.APIsOfMyBatis.Util.GlobalReturnCode;
 import com.hongye.APIsOfMyBatis.Util.JsonResult;
 import com.hongye.APIsOfMyBatis.entity.Goods;
 import com.hongye.APIsOfMyBatis.service.GoodsService;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +14,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+/**
+ * @author 竑也
+ */
 @RestController
 @RequestMapping("goods")
 public class GoodsController {
@@ -42,56 +44,36 @@ public class GoodsController {
     }
     @PostMapping("addgoods")
     public JsonResult addGoods(@RequestBody Map<String,String>map){
-        boolean success=goodsService.addGoods(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
+        goodsService.addGoods(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
         String target=map.get("target");
-        if (success) {
             //用正则检查target参数里面的数据库类名
-            if(Pattern.matches(target,".*post.*")) {
-                boolean successful = goodsService.addGoodsToPost(target,map.get("id"));
-                if (successful) {
-                    return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,successful);
-                }else {
-                    return new JsonResult(false,GlobalReturnCode.NOEXIST);
-                }
+            if(Pattern.matches(".*post.*",target)) {
+                goodsService.addGoodsToPost(target,map.get("id"));
+                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
             }
             //用正则检查target参数里面的数据库类名
-            if (Pattern.matches(target,".*comment.*")){
-                boolean successful =goodsService.addGoodsToComment(target,map.get("id"));
-                if (successful) {
-                    return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,successful);
-                } else {
-                    return new JsonResult(false,GlobalReturnCode.NOEXIST);
-                }
+            if (Pattern.matches(".*comment.*",target)){
+                goodsService.addGoodsToComment(target,map.get("id"));
+                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
             }
-        }
         //默认返回,一般走不到这一步
         return new JsonResult(false,GlobalReturnCode.NOEXIST);
     }
     @PostMapping("deletegoods")
     public JsonResult deleteGoods(@RequestBody Map<String, String>map){
-        boolean success=goodsService.deleteGoods(map.get("userid"),map.get("id"),map.get("tablename"));
+        goodsService.deleteGoods(map.get("userid"),map.get("id"),map.get("tablename"));
         String target=map.get("target");
-        if (success) {
             //用正则检查target参数里面的数据库类名
-            if(Pattern.matches(target,".*post.*")) {
-                boolean successful = goodsService.deleteGoodsFromPost(target,map.get("id"));
-                if (successful) {
-                    return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,successful);
-                }else {
-                    return new JsonResult(false,GlobalReturnCode.NOEXIST);
-                }
+            if(Pattern.matches(".*post.*",target)) {
+                goodsService.deleteGoodsFromPost(target,map.get("id"));
+                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
             }
             //用正则检查target参数里面的数据库类名
-            if (Pattern.matches(target,".*comment.*")){
-                boolean successful =goodsService.deleteGoodsFromComment(target,map.get("id"));
-                if (successful) {
-                    return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,successful);
-                } else {
-                    return new JsonResult(false,GlobalReturnCode.NOEXIST);
-                }
+            if (Pattern.matches(".*comment.*",target)){
+                goodsService.deleteGoodsFromComment(target,map.get("id"));
+                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
             }
-        }
         //默认返回,一般走不到这一步
-        return null;
+        return new JsonResult(false,GlobalReturnCode.NOEXIST);
     }
 }

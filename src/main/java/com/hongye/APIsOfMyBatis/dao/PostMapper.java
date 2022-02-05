@@ -59,7 +59,7 @@ public interface PostMapper {
     videos, @Param("tablename")String tablename);
 
     /**
-     * Search for last post posts.
+     * Search for last post.
      *
      * @param tablename the tablename
      * @return the posts
