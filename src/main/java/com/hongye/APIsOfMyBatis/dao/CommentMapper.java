@@ -37,13 +37,12 @@ public interface CommentMapper {
     /**
      * Add comment boolean.
      *
-     * @param nickname  the nickname
      * @param user_id   the user id
      * @param post_id   the post id
      * @param content   the content
      * @param tablename the tablename
      */
-    void addComment(@Param("nickname")String nickname,@Param("user_id")String user_id,@Param("post_id")String post_id,
+    void addComment(@Param("user_id")String user_id,@Param("post_id")String post_id,
                        @Param("content")String content,@Param("tablename")String tablename);
 
     /**

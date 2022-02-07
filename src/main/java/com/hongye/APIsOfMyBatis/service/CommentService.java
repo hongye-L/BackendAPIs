@@ -44,14 +44,13 @@ public class CommentService {
     /**
      * Add comment boolean.
      *
-     * @param nickname  the nickname
      * @param user_id    the user id
      * @param post_id    the post id
      * @param content   the content
      * @param tablename the tablename
      */
-    public void addComment(String nickname, String user_id, String post_id, String content, String tablename) {
-        commentMapper.addComment(nickname,user_id,post_id,content,tablename);
+    public void addComment(String user_id, String post_id, String content, String tablename) {
+        commentMapper.addComment(user_id,post_id,content,tablename);
     }
 
     /**

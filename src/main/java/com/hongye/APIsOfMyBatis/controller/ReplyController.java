@@ -43,8 +43,8 @@ public class ReplyController {
     }
     @PostMapping("addreply")
     public JsonResult addReply(@RequestBody Map<String,String>map){
-        replyService.addReply(map.get("user_id"),map.get("content"),map.get("parent_id"),
-                map.get("comment_id"),map.get("post_id"),map.get("tablname"));
+        replyService.addReply(map.get("user_id"),map.get("content"),map.getOrDefault("parent_id","0"),
+                map.getOrDefault("comment_id",null),map.getOrDefault("post_id",null),map.get("tablname"));
         Reply success=replyService.check(map.get("content"),map.get("tablename"));
         if (success!=null) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);

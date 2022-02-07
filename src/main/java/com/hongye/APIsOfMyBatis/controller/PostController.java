@@ -21,7 +21,7 @@ import java.util.Map;
 public class PostController {
     @Autowired
     private PostService postService;
-    @PostMapping("getPost")
+    @PostMapping("getpost")
     public JsonResult getPostByIDAndTablename(@RequestBody Map<String,String> map){
         Posts post=postService.getPostByIDAndTablename(Integer.valueOf(map.get("post_id")),map.get("tablename"));
         //查找到了就输出
@@ -33,7 +33,7 @@ public class PostController {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);
         }
     }
-    @PostMapping("getPosts")
+    @PostMapping("getposts")
     public JsonResult getAllPostsByTablename(@RequestBody Map<String,String> map){
         List<Posts> posts = postService.getAllPostsByTablename(map.get("tablename"));
         //查找到了就输出

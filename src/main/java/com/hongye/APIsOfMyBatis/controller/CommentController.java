@@ -45,7 +45,7 @@ public class CommentController {
     }
     @PostMapping("addcomment")
     public JsonResult addComment(@RequestBody Map<String,String> map){
-        commentService.addComment(map.getOrDefault("nickname",null),map.getOrDefault("userid",null),
+        commentService.addComment(map.getOrDefault("userid",null),
                 map.getOrDefault("post_id",null),map.getOrDefault("content",null),map.getOrDefault("tablename",null));
         Comments success=commentService.check(map.get("tablename"),map.get("content"));
         //成功插入
