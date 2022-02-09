@@ -3,6 +3,7 @@ server:
 
 spring:
   datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://120.24.191.82:3306/mysql?serverTimezone = GMT&characterEncoding=utf8
     username: root
     password: miku1234
