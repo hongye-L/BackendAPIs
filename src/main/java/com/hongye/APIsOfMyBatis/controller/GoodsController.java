@@ -24,10 +24,10 @@ public class GoodsController {
     private GoodsService goodsService;
     @PostMapping("getgoodsbyuserid")
     public JsonResult getGoodsByUserId(@RequestBody Map<String,String> map){
-        Goods good=goodsService.getGoodsByUserId(map.get("userid"),map.get("tablename"));
+        List<Goods> goods=goodsService.getGoodsByUserId(map.get("userid"),map.get("tablename"));
         //查找到就输出
-        if (good!=null) {
-            return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS,good);
+        if (goods!=null) {
+            return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS,goods);
         } else {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);
         }

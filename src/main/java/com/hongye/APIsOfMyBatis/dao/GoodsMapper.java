@@ -19,7 +19,7 @@ public interface GoodsMapper {
      * @param tablename the tablename
      * @return the goods by user id
      */
-    Goods getGoodsByUserId(@Param("userid")String userid, @Param("tablename")String tablename);
+    List<Goods> getGoodsByUserId(@Param("userid")String userid, @Param("tablename")String tablename);
 
     /**
      * Gets goods by second id.

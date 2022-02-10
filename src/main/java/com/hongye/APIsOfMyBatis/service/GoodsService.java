@@ -23,7 +23,7 @@ public class GoodsService{
      * @param tablename the tablename
      * @return the goods by user id
      */
-    public Goods getGoodsByUserId(String userid, String tablename) {
+    public List<Goods> getGoodsByUserId(String userid, String tablename) {
         return goodsMapper.getGoodsByUserId(userid,tablename);
     }
 
