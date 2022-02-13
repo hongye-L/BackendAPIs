@@ -1,11 +1,9 @@
 package com.hongye.APIsOfMyBatis.entity;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-import java.util.Date;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * (PostArts)实体类
