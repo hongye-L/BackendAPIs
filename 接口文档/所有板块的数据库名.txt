@@ -1,11 +1,11 @@
 帖子：
-post_arts,post_sports,post_teaching
+post_arts,post_sport,post_teaching
 
 评论：
-comment_arts,comment_sports,post_teaching
+comment_arts,comment_sport,post_teaching
 
 回复：
-reply_arts,reply_sports,reply_teaching
+reply_arts,reply_sport,reply_teaching
 
 点赞：
 post_goods,comment_goods
