@@ -37,7 +37,7 @@ public class Posts implements Serializable {
     
     private String picture6;
     
-    private Boolean goods;
+    private Integer goods;
     
     private Integer replys;
     
