@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class Reply implements Serializable {
     private static final long serialVersionUID = -53609167167085287L;
     
-    private Integer replyId;
+    private Integer reply_id;
     
     private String userid;
     
@@ -25,10 +25,10 @@ public class Reply implements Serializable {
     
     private Date time;
     
-    private Integer parentId;
+    private Integer parent_id;
     
-    private Integer commentId;
+    private Integer comment_id;
 
-    private Integer postId;
+    private Integer post_id;
 
 }
