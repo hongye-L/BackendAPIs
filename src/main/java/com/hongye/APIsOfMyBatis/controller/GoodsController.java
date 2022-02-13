@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.net.ConnectException;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -24,13 +26,13 @@ public class GoodsController {
     private GoodsService goodsService;
     @PostMapping("getgoodsbyuserid")
     public JsonResult getGoodsByUserId(@RequestBody Map<String,String> map){
-        List<Goods> goods=goodsService.getGoodsByUserId(map.get("userid"),map.get("tablename"));
+        List<Goods> goods = goodsService.getGoodsByUserId(map.get("userid"), map.get("tablename"));
         //查找到就输出
-        if (goods!=null) {
-            return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS,goods);
-        } else {
-            return new JsonResult(false,GlobalReturnCode.NOEXIST);
-        }
+            if (goods != null) {
+                return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS, goods);
+            } else {
+                return new JsonResult(false, GlobalReturnCode.NOEXIST);
+            }
     }
     @PostMapping("getgoodsbysecondid")
     public JsonResult getGoodsBySecondId(@RequestBody Map<String,String>map){

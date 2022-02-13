@@ -16,14 +16,13 @@ import java.io.Serializable;
 @Data
 public class Comments implements Serializable {
     private static final long serialVersionUID = 965875710241774367L;
-    
-    private String nickname;
+
     
     private String userid;
     
-    private Integer postId;
+    private Integer post_id;
     
-    private Integer commentId;
+    private Integer comment_id;
     
     private String content;
     

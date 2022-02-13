@@ -17,12 +17,10 @@ import java.io.Serializable;
 public class Posts implements Serializable {
     private static final long serialVersionUID = 592866995341806585L;
     
-    private Integer postId;
+    private Integer post_id;
     
-    private String userId;
-    
-    private String userAvatar;
-    
+    private String userid;
+
     private Date time;
     
     private String postTitle;
