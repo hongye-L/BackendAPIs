@@ -17,5 +17,5 @@
 :soon::soon::soon::soon::soon::soon::soon:
 
 :one:.计划整合Redis 为将来缓存机制做好准备（比如说登录和权限组管理）
-
+2️⃣ 计划用Redis实现二级缓存 优化数据库读取效率
 ![QQ图片20220125155519](https://user-images.githubusercontent.com/74951837/150934949-8649c155-7c4f-418f-8f08-a8dff34614fa.jpg)
