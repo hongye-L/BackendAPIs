@@ -2,7 +2,7 @@
 post_arts,post_sport,post_teaching
 
 评论：
-comment_arts,comment_sport,post_teaching
+comment_arts,comment_sport,comment_teaching
 
 回复：
 reply_arts,reply_sport,reply_teaching
