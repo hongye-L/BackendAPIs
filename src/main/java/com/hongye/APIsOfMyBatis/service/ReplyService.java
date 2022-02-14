@@ -35,4 +35,6 @@ public class ReplyService {
     public Reply checkByID(String reply_id,String tablename){
         return replyMapper.checkById(reply_id,tablename);
     }
+    public void addreplyto(String target,String post_id){replyMapper.addreplyto(target,post_id);}
+    public void deletereplyto(String target,String post_id){replyMapper.deletereplyto(target, post_id);}
 }

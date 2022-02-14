@@ -10,11 +10,10 @@
         select * from sportapp.${tablename} where comment_id=#{comment_id}
     </select>
     <insert id="addReply" parameterType="com.hongye.APIsOfMyBatis.entity.Reply">
-        insert into sportapp.${tablename}(userid,content,parent_id,comment_id,post_id)
-        values (#{user_id},#{content},#{parent_id},#{comment_id},#{post_id})
+        insert into sportapp.${tablename} (userid,content,parent_id,comment_id,post_id) values (#{user_id},#{content},#{parent_id},#{comment_id},#{post_id})
     </insert>
     <delete id="deleteReplyById" parameterType="com.hongye.APIsOfMyBatis.entity.Reply">
-        delete from sportapp.${tablename} where user_id=#{user_id} and reply_id=#{reply_id}
+        delete from sportapp.${tablename} where userid=#{user_id} and reply_id=#{reply_id}
     </delete>
 
     <select id="check" resultType="com.hongye.APIsOfMyBatis.entity.Reply">
@@ -24,4 +23,11 @@
     <select id="checkById" resultType="com.hongye.APIsOfMyBatis.entity.Reply">
         select * from sportapp.${tablename} where reply_id=#{reply_id}
     </select>
+
+    <update id="addreplyto">
+        update sportapp.${target} set replys =replys+1 where post_id=#{post_id}
+    </update>
+    <update id="deletereplyto">
+        update sportapp.${target} set replys =replys-1 where post_id=#{post_id}
+    </update>
 </mapper>

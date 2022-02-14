@@ -44,7 +44,8 @@ public class ReplyController {
     @PostMapping("addreply")
     public JsonResult addReply(@RequestBody Map<String,String>map){
         replyService.addReply(map.get("user_id"),map.get("content"),map.getOrDefault("parent_id","0"),
-                map.getOrDefault("comment_id",null),map.getOrDefault("post_id",null),map.get("tablname"));
+                map.getOrDefault("comment_id",null),map.getOrDefault("post_id",null),map.get("tablename"));
+        replyService.addreplyto(map.get("target"),map.get("post_id"));
         Reply success=replyService.check(map.get("content"),map.get("tablename"));
         if (success!=null) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,success);
@@ -55,6 +56,7 @@ public class ReplyController {
     @PostMapping("deletereplybyid")
     public JsonResult deleteReplyById(@RequestBody Map<String,String>map){
         replyService.deleteReplyById(map.get("user_id"),map.get("reply_id"),map.get("tablename"));
+        replyService.deletereplyto(map.get("target"),map.get("post_id"));
         Reply success=replyService.checkByID(map.get("reply_id"),map.get("tablename"));
         if(success==null) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);

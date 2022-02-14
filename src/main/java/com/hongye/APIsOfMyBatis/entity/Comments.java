@@ -18,13 +18,13 @@ public class Comments implements Serializable {
     
     private String userid;
     
-    private Integer post_id;
+    private String post_id;
     
-    private Integer comment_id;
+    private String comment_id;
     
     private String content;
     
-    private Integer goods;
+    private String goods;
     
     private Date time;
 }

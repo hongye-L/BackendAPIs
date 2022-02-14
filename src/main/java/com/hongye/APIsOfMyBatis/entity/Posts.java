@@ -21,25 +21,25 @@ public class Posts implements Serializable {
 
     private Date time;
     
-    private String postTitle;
+    private String post_title;
     
     private String content;
     
-    private String picture1;
+    private String picture_1;
     
-    private String picture2;
+    private String picture_2;
     
-    private String picture3;
+    private String picture_3;
     
-    private String picture5;
+    private String picture_4;
     
-    private String picture4;
+    private String picture_5;
     
-    private String picture6;
+    private String picture_6;
     
-    private Integer goods;
+    private String goods;
     
-    private Integer replys;
+    private String replys;
     
     private String videos;
 }

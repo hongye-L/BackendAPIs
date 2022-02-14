@@ -71,4 +71,7 @@ public interface ReplyMapper {
      * @return the reply
      */
     Reply checkById(@Param("reply_id")String reply_id,@Param("tablename")String tablename);
+
+    void addreplyto(@Param("target")String target,@Param("post_id")String post_id);
+    void deletereplyto(@Param("target")String target,@Param("post_id")String post_id);
 }

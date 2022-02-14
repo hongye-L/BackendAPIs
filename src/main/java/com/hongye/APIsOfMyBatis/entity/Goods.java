@@ -14,9 +14,9 @@ import java.io.Serializable;
 public class Goods implements Serializable {
     private static final long serialVersionUID = 939149511417226181L;
     
-    private Integer userId;
+    private String userId;
 
-    private Integer id;
+    private String id;
 
     private Boolean goods;
 }

@@ -14,7 +14,7 @@
         values(#{user_id},#{content},#{post_id});
     </insert>
     <delete id="deleteComment" parameterType="com.hongye.APIsOfMyBatis.entity.Comments">
-        delete from sportapp.${tablename} where post_id=#{post_id} and user_id=#{user_id} and comment_id=#{comment_id}
+        delete from sportapp.${tablename} where post_id=#{post_id} and userid=#{user_id} and comment_id=#{comment_id}
     </delete>
 
     <select id="check" resultType="com.hongye.APIsOfMyBatis.entity.Comments">

@@ -19,11 +19,11 @@ public interface CommentMapper {
      *
      * @param comment_id the comment id
      * @param tablename  the tablename
-     * @param postId     the post id
+     * @param post_id     the post id
      * @param user_id    the user id
      * @return the comments by id
      */
-    Comments getCommentsById(@Param("comment_id")String comment_id,@Param("tablename")String tablename,@Param("post_id")String postId,@Param("user_id")String user_id);
+    Comments getCommentsById(@Param("comment_id")String comment_id,@Param("tablename")String tablename,@Param("post_id")String post_id,@Param("user_id")String user_id);
 
     /**
      * Gets comments by post.

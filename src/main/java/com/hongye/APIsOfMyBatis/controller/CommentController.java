@@ -23,7 +23,7 @@ public class CommentController {
     private CommentService commentService;
     @PostMapping("getcommentbyid")
     public JsonResult getCommentsById(@RequestBody Map<String,String> map){
-        Comments comments=commentService.getCommentsById(map.get("comment_id"),map.get("post_id"), map.get("tablename"),map.get("user_id"));
+        Comments comments=commentService.getCommentsById(map.get("comment_id"), map.get("tablename"),map.get("post_id"),map.get("user_id"));
         //查找到了就输出
         if (comments!=null){
             return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS,comments);
