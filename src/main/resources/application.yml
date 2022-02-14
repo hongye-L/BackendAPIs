@@ -7,6 +7,8 @@ spring:
     url: jdbc:mysql://120.24.191.82:3306/mysql?serverTimezone = GMT&characterEncoding=utf8
     username: root
     password: miku1234
+    hikari:
+      max-lifetime: 30000
   jackson:
     date-format: yyyy-MM-dd #如果使用字符串型表示，用这行设置
     timezone: GMT+8
