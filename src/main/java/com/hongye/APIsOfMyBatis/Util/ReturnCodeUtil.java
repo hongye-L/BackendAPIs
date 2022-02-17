@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * The type Return code util.
+ *
  * @author 竑也
  */
 public class ReturnCodeUtil {
@@ -26,6 +28,7 @@ public class ReturnCodeUtil {
         returnCodeMap.put(GlobalReturnCode.PARAM_ERROR, "参数错误");
         returnCodeMap.put(GlobalReturnCode.NOEXIST, "路径不存在");
         returnCodeMap.put(GlobalReturnCode.AlreadyExist,"重复操作");
+        returnCodeMap.put(GlobalReturnCode.UnknownError,"未知错误");
     }
 
 
@@ -33,7 +36,7 @@ public class ReturnCodeUtil {
      * 获取返回的中文说明
      *
      * @param resultCode 返回码
-     * @return 中文名称
+     * @return 中文名称 msg
      */
     public static String getMsg(String resultCode) {
         return returnCodeMap.getOrDefault(resultCode, "");

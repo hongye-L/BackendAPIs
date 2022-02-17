@@ -1,5 +1,8 @@
 package com.hongye.APIsOfMyBatis.Util;
 
+    /**
+     * @author 竑也
+     */
     public class GlobalReturnCode {
         /**
          * 保存成功
@@ -40,6 +43,12 @@ package com.hongye.APIsOfMyBatis.Util;
          * 路径不存在
          */
         public static final String NOEXIST = "30004";
-
+        /**
+         * 重复操作
+         */
         public static final String AlreadyExist = "30005";
+        /**
+         * 未知错误
+         */
+        public static final String UnknownError = "30006";
     }

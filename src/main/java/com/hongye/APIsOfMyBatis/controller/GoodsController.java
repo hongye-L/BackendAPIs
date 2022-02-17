@@ -44,6 +44,7 @@ public class GoodsController {
     }
     @PostMapping("addgoods")
     public JsonResult addGoods(@RequestBody Map<String,String>map){
+        //先检查是否已经添加了这个记录
         Goods ifhave=goodsService.check(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
         if(ifhave==null) {
             goodsService.addGoods(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
@@ -62,10 +63,11 @@ public class GoodsController {
             return new JsonResult(false,GlobalReturnCode.AlreadyExist);
         }
         //默认返回,一般走不到这一步
-        return new JsonResult(false,GlobalReturnCode.NOEXIST);
+        return new JsonResult(false,GlobalReturnCode.UnknownError);
     }
     @PostMapping("deletegoods")
     public JsonResult deleteGoods(@RequestBody Map<String, String>map){
+        //先检查是否已经删了这个记录
         Goods ifhave=goodsService.check(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
         if(ifhave!=null) {
             goodsService.deleteGoods(map.get("userid"),map.get("id"),map.get("tablename"));
@@ -84,6 +86,6 @@ public class GoodsController {
             return new JsonResult(false,GlobalReturnCode.AlreadyExist);
         }
         //默认返回,一般走不到这一步
-        return new JsonResult(false,GlobalReturnCode.NOEXIST);
+        return new JsonResult(false,GlobalReturnCode.UnknownError);
     }
 }
