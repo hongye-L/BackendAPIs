@@ -25,7 +25,7 @@ public class ReturnCodeUtil {
         returnCodeMap.put(GlobalReturnCode.SYSTEM_ERROR, "系统错误");
         returnCodeMap.put(GlobalReturnCode.PARAM_ERROR, "参数错误");
         returnCodeMap.put(GlobalReturnCode.NOEXIST, "路径不存在");
-
+        returnCodeMap.put(GlobalReturnCode.AlreadyExist,"重复操作");
     }
 
 

@@ -44,35 +44,45 @@ public class GoodsController {
     }
     @PostMapping("addgoods")
     public JsonResult addGoods(@RequestBody Map<String,String>map){
-        goodsService.addGoods(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
-        String target=map.get("target");
+        Goods ifhave=goodsService.check(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
+        if(ifhave==null) {
+            goodsService.addGoods(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
+            String target=map.get("target");
             //用正则检查target参数里面的数据库类名
-            if(Pattern.matches(".*post.*",target)) {
-                goodsService.addGoodsToPost(target,map.get("id"));
-                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
+            if (Pattern.matches(".*post.*", target)) {
+                goodsService.addGoodsToPost(target, map.get("id"));
+                return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS);
             }
             //用正则检查target参数里面的数据库类名
-            if (Pattern.matches(".*comment.*",target)){
-                goodsService.addGoodsToComment(target,map.get("id"));
-                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
+            if (Pattern.matches(".*comment.*", target)) {
+                goodsService.addGoodsToComment(target, map.get("id"));
+                return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS);
             }
+        }else {
+            return new JsonResult(false,GlobalReturnCode.AlreadyExist);
+        }
         //默认返回,一般走不到这一步
         return new JsonResult(false,GlobalReturnCode.NOEXIST);
     }
     @PostMapping("deletegoods")
     public JsonResult deleteGoods(@RequestBody Map<String, String>map){
-        goodsService.deleteGoods(map.get("userid"),map.get("id"),map.get("tablename"));
-        String target=map.get("target");
+        Goods ifhave=goodsService.check(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
             //用正则检查target参数里面的数据库类名
-            if(Pattern.matches(".*post.*",target)) {
-                goodsService.deleteGoodsFromPost(target,map.get("id"));
-                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
+        if(ifhave!=null) {
+            goodsService.deleteGoods(map.get("userid"),map.get("id"),map.get("tablename"));
+            String target=map.get("target");
+            if (Pattern.matches(".*post.*", target)) {
+                goodsService.deleteGoodsFromPost(target, map.get("id"));
+                return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS);
             }
             //用正则检查target参数里面的数据库类名
-            if (Pattern.matches(".*comment.*",target)){
-                goodsService.deleteGoodsFromComment(target,map.get("id"));
-                return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);
+            if (Pattern.matches(".*comment.*", target)) {
+                goodsService.deleteGoodsFromComment(target, map.get("id"));
+                return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS);
             }
+        }else {
+            return new JsonResult(false,GlobalReturnCode.AlreadyExist);
+        }
         //默认返回,一般走不到这一步
         return new JsonResult(false,GlobalReturnCode.NOEXIST);
     }

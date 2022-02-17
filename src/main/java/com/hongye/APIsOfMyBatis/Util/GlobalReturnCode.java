@@ -40,4 +40,6 @@ package com.hongye.APIsOfMyBatis.Util;
          * 路径不存在
          */
         public static final String NOEXIST = "30004";
+
+        public static final String AlreadyExist = "30005";
     }
