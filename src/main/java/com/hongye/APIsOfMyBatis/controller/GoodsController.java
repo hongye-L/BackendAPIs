@@ -67,10 +67,10 @@ public class GoodsController {
     @PostMapping("deletegoods")
     public JsonResult deleteGoods(@RequestBody Map<String, String>map){
         Goods ifhave=goodsService.check(map.get("userid"),map.get("id"),map.get("tablename"),map.get("target"));
-            //用正则检查target参数里面的数据库类名
         if(ifhave!=null) {
             goodsService.deleteGoods(map.get("userid"),map.get("id"),map.get("tablename"));
             String target=map.get("target");
+            //用正则检查target参数里面的数据库类名
             if (Pattern.matches(".*post.*", target)) {
                 goodsService.deleteGoodsFromPost(target, map.get("id"));
                 return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS);
