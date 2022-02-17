@@ -3,7 +3,7 @@
 
 去掉了一些不必要的代码，并且对一些重复的接口进行合并
 
-整合spring+springmvc+mybatis
+springboot整合spring+springmvc+mybatis
 （目前基本完成）
 
 
