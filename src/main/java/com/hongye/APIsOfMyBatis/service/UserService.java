@@ -3,9 +3,12 @@ package com.hongye.APIsOfMyBatis.service;
 import com.hongye.APIsOfMyBatis.dao.UserMapper;
 import com.hongye.APIsOfMyBatis.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The type User service.
@@ -16,7 +19,8 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserMapper userMapper;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
     /**
      * Get all users list.
      *
@@ -33,7 +37,16 @@ public class UserService {
      * @return the user
      */
     public User getUserById(Integer id){
-        return userMapper.getUserById(id);
+        String key=String.valueOf(id);
+        ValueOperations<String,User> operations=redisTemplate.opsForValue();
+        Boolean haveKey=redisTemplate.hasKey(key);
+        if(Boolean.TRUE.equals(haveKey)){
+            return operations.get(key);
+        }else {
+            User user= userMapper.getUserById(id);
+            operations.set(key,user,30, TimeUnit.DAYS);
+            return user;
+        }
     }
 
     /**
