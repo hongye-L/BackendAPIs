@@ -64,4 +64,6 @@ public interface CommentMapper {
     Comments check(@Param("tablename")String tablename,@Param("content")String content);
 
     String getCommentID(@Param("user_id")String user_id,@Param("content")String content,@Param("tablename")String tablename);
+
+    List<Comments> getCommentsByUID(@Param("user_id")String user_id,@Param("tablename")String tablename);
 }

@@ -43,6 +43,17 @@ public class CommentController {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);
         }
     }
+    @PostMapping("getcommentbyUID")
+    public JsonResult getCommentByUID(@RequestBody Map<String,String>map){
+        List<Comments> comments = commentService.getCommentsByUID(map.get("user_id"),map.get("tablename"));
+        //查找到了就输出
+        if (comments!=null){
+            return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS,comments);
+            //如果为空则返回错误
+        }else{
+            return new JsonResult(false,GlobalReturnCode.NOEXIST);
+        }
+    }
     @PostMapping("addcomment")
     public JsonResult addComment(@RequestBody Map<String,String> map){
         commentService.addComment(map.getOrDefault("userid",null),

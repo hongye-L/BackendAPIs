@@ -24,4 +24,8 @@
     <select id="getCommentID" resultType="java.lang.String">
         select * from sportapp.${tablename} where content =#{content} and userid =#{user_id}
     </select>
+
+    <select id="getCommentsByUID" resultType="com.hongye.APIsOfMyBatis.entity.Comments">
+        select * from sportapp.${tablename} where userid=#{user_id}
+    </select>
 </mapper>

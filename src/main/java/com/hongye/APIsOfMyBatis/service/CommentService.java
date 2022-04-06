@@ -87,4 +87,7 @@ public class CommentService {
     public String getCommentID(String user_id,String content,String tablename){
         return commentMapper.getCommentID(user_id, content, tablename);
     }
+    public List<Comments> getCommentsByUID(String user_id, String tablename) {
+        return commentMapper.getCommentsByUID(user_id,tablename);
+    }
 }
