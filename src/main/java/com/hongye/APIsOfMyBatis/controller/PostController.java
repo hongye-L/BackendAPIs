@@ -45,6 +45,18 @@ public class PostController {
             return new JsonResult(false,GlobalReturnCode.NOEXIST);
         }
     }
+    @PostMapping("getpostsbyUID")
+    public JsonResult getAllPostsByUID(@RequestBody Map<String,String> map){
+        List<Posts> posts = postService.getPostsByUID(map.get("user_id"),map.get("tablename"));
+        //查找到了就输出
+        if(posts!=null) {
+            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,posts);
+        }
+        //如果为空则返回错误
+        else {
+            return new JsonResult(false,GlobalReturnCode.NOEXIST);
+        }
+    }
     @PostMapping("deletepost")
     public JsonResult deletePostByidAndTablename(@RequestBody Map<String,String> map){
         postService.deletePostByidAndTablename(Integer.valueOf(map.get("post_id")),map.get("tablename"));

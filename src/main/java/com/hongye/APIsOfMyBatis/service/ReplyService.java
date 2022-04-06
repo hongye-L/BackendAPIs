@@ -37,4 +37,8 @@ public class ReplyService {
     }
     public void addreplyto(String target,String post_id){replyMapper.addreplyto(target,post_id);}
     public void deletereplyto(String target,String post_id){replyMapper.deletereplyto(target, post_id);}
+
+    public List<Reply> getReplyByUID(String user_id, String tablename) {
+        return replyMapper.getReplyByUID(user_id, tablename);
+    }
 }

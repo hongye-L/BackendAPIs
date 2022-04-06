@@ -76,4 +76,7 @@ public class PostService{
     public Posts searchForLastPost(String tablename){
         return postMapper.searchForLastPost(tablename);
     }
+    public List<Posts> getPostsByUID(String user_id,String tablename){
+        return postMapper.getPostsByUID(user_id, tablename);
+    }
 }

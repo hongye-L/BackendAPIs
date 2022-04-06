@@ -41,6 +41,15 @@ public class ReplyController {
                 return new JsonResult(false,GlobalReturnCode.NOEXIST);
             }
     }
+    @PostMapping("getreplybyUID")
+    public JsonResult getReplyByUID(@RequestBody Map<String,String> map){
+        List<Reply> replies=replyService.getReplyByUID(map.get("user_id"),map.get("tablename"));
+        if (replies!=null) {
+            return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS,replies);
+        } else {
+            return new JsonResult(false,GlobalReturnCode.NOEXIST);
+        }
+    }
     @PostMapping("addreply")
     public JsonResult addReply(@RequestBody Map<String,String>map){
         replyService.addReply(map.get("user_id"),map.get("content"),map.getOrDefault("parent_id","0"),

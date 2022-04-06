@@ -30,4 +30,8 @@
     <update id="deletereplyto">
         update sportapp.${target} set replys =replys-1 where post_id=#{post_id}
     </update>
+
+    <select id="getReplyByUID" resultType="com.hongye.APIsOfMyBatis.entity.Reply">
+        select * from sportapp.${tablename} where userid=#{user_id}
+    </select>
 </mapper>

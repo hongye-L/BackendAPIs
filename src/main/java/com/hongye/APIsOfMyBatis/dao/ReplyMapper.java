@@ -74,4 +74,6 @@ public interface ReplyMapper {
 
     void addreplyto(@Param("target")String target,@Param("post_id")String post_id);
     void deletereplyto(@Param("target")String target,@Param("post_id")String post_id);
+
+    List<Reply> getReplyByUID(@Param("user_id")String comment_id,@Param("tablename")String tablename);
 }
