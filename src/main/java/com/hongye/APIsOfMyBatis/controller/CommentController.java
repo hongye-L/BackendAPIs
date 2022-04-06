@@ -23,7 +23,7 @@ public class CommentController {
     private CommentService commentService;
     @PostMapping("getcommentbyid")
     public JsonResult getCommentsById(@RequestBody Map<String,String> map){
-        Comments comments=commentService.getCommentsById(map.get("comment_id"), map.get("tablename"),map.get("post_id"),map.get("user_id"));
+        Comments comments=commentService.getCommentsById(map.get("comment_id"), map.get("tablename"));
         //查找到了就输出
         if (comments!=null){
             return new JsonResult(true, GlobalReturnCode.OPERA_SUCCESS,comments);
@@ -59,7 +59,7 @@ public class CommentController {
     @PostMapping("deletecomment")
     public JsonResult deleteComment(@RequestBody Map<String,String>map){
         commentService.deleteComment(map.get("post_id"),map.get("comment_id"),map.get("user_id"),map.get("tablename"));
-        Comments success=commentService.getCommentsById(map.get("comment_id"),map.get("tablename"),map.get("post_id"),map.get("user_id"));
+        Comments success=commentService.getCommentsById(map.get("comment_id"),map.get("tablename"));
         //删除成功
         if (success==null) {
             return new JsonResult(true,GlobalReturnCode.OPERA_SUCCESS);

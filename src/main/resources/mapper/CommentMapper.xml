@@ -20,4 +20,8 @@
     <select id="check" resultType="com.hongye.APIsOfMyBatis.entity.Comments">
         select * from sportapp.${tablename} where content =#{content} order by time desc limit 1
     </select>
+
+    <select id="getCommentID" resultType="java.lang.String">
+        select * from sportapp.${tablename} where content =#{content} and userid =#{user_id}
+    </select>
 </mapper>
