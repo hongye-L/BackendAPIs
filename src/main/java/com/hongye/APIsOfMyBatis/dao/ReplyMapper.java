@@ -72,8 +72,28 @@ public interface ReplyMapper {
      */
     Reply checkById(@Param("reply_id")String reply_id,@Param("tablename")String tablename);
 
+    /**
+     * Addreplyto.
+     *
+     * @param target  the target
+     * @param post_id the post id
+     */
     void addreplyto(@Param("target")String target,@Param("post_id")String post_id);
+
+    /**
+     * Deletereplyto.
+     *
+     * @param target  the target
+     * @param post_id the post id
+     */
     void deletereplyto(@Param("target")String target,@Param("post_id")String post_id);
 
+    /**
+     * Gets reply by uid.
+     *
+     * @param comment_id the comment id
+     * @param tablename  the tablename
+     * @return the reply by uid
+     */
     List<Reply> getReplyByUID(@Param("user_id")String comment_id,@Param("tablename")String tablename);
 }

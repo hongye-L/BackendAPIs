@@ -63,7 +63,22 @@ public interface CommentMapper {
      */
     Comments check(@Param("tablename")String tablename,@Param("content")String content);
 
+    /**
+     * Gets comment id.
+     *
+     * @param user_id   the user id
+     * @param content   the content
+     * @param tablename the tablename
+     * @return the comment id
+     */
     String getCommentID(@Param("user_id")String user_id,@Param("content")String content,@Param("tablename")String tablename);
 
+    /**
+     * Gets comments by uid.
+     *
+     * @param user_id   the user id
+     * @param tablename the tablename
+     * @return the comments by uid
+     */
     List<Comments> getCommentsByUID(@Param("user_id")String user_id,@Param("tablename")String tablename);
 }

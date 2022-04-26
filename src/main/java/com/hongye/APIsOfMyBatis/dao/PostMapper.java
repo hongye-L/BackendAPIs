@@ -66,5 +66,12 @@ public interface PostMapper {
      */
     Posts searchForLastPost(@Param("tablename")String tablename);
 
+    /**
+     * Gets posts by uid.
+     *
+     * @param user_id   the user id
+     * @param tablename the tablename
+     * @return the posts by uid
+     */
     List<Posts> getPostsByUID(@Param("user_id")String user_id, @Param("tablename")String tablename);
 }
