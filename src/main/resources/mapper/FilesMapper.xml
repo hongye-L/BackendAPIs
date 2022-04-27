@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hongye.APIsOfMyBatis.dao.FilesMapper">
+
+<select id="getFilesbyuserId" resultType="com.hongye.APIsOfMyBatis.entity.Files">
+    select * from sportapp.files where user_id=#{user_id};
+</select>
+
+<insert id="createFiles" parameterType="com.hongye.APIsOfMyBatis.entity.Files">
+    insert into sportapp.files (user_id, address, plate, targetId) VALUES (#{user_id},#{address},#{plate},#{targetid})
+</insert>
+
+<delete id="deleteFiles">
+    delete from sportapp.files where user_id=#{user_id} and targetId=#{targetid}
+</delete>
+
+<select id="checkFiles" resultType="com.hongye.APIsOfMyBatis.entity.Files">
+    select * from sportapp.files where user_id=#{user_id} and targetId=#{targetid}
+</select>
+</mapper>
