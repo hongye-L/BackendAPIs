@@ -44,6 +44,7 @@ public class FilesController {
      * @param map the map
      * @return the json result
      */
+    @PostMapping("getfile")
     public JsonResult getFiles(@RequestBody Map<String, String> map){
         List<Files> files=filesService.getFilesbyuserId(map.get("user_id"));
         if(files!=null){
@@ -59,6 +60,7 @@ public class FilesController {
      * @param map the map
      * @return the json result
      */
+    @PostMapping("deletefile")
     public JsonResult deleteFiles(@RequestBody Map<String, String> map){
         filesService.deleteFiles(map.get("user_id"),map.get("targetid"));
         Files isdone=filesService.checkFiles(map.get("user_id"),map.get("targetid"));
